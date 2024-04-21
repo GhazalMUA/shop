@@ -164,7 +164,7 @@ AWS_S3_ENDPOINT_URL='https://ghazalmua3.s3.ir-thr-at1.arvanstorage.ir'
             "Action": [
                 "s3:PutObject",
                 "s3:GetObjectAcl",
-                "s3:GetObject",
+                "s3:GetObject", 
                 "s3:ListBucket",
                 "s3:DeleteObject",
                 "s3:PutObjectAcl"
