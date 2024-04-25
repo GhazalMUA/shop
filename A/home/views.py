@@ -1,10 +1,8 @@
 from django.shortcuts import render , get_object_or_404
-from django.http import HttpResponse
 from django.views import View
+from django.conf import settings
 from .models import Product
 from . import tasks
-
-
 
 class HomeView(View):
     def get(self, request):
@@ -24,4 +22,3 @@ class BucketHome(View):
         print('='*200)
         print(objects)
         return render(request, self.template_name , {'objects':objects})
-

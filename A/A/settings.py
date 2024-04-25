@@ -153,11 +153,11 @@ STORAGES = {
 }                                                                                 #I COPY AND PASTE IT FROM DJANGO OFFICIAL WEBSITE DOCUMENTATION 
 }
 AWS_ACCESS_KEY_ID= 'ff0faf16-9899-4718-b2b8-1823ef9495ee'
-AWS_SECRET_ACCESS_KEY= '0c4d41e2852759717234a07904fce4498778aa011b539ae41ad65f6ded92c306'
-AWS_STORAGE_BUCKET_NAME= 'ghazalmua3'
+AWS_SECRET_ACCESS_KEY= '22d6a3f92d87d2738085390f4f49a0e7647253ad222991da63067aaabc435ffd'
+AWS_STORAGE_BUCKET_NAME= 'ghazalmua2'
 AWS_SERVICE_NAME='s3'
 AWS_S3_FILE_OVERWRITE= False
-AWS_S3_ENDPOINT_URL='https://ghazalmua3.s3.ir-thr-at1.arvanstorage.ir'
+AWS_S3_ENDPOINT_URL='https://s3.ir-tbz-sh1.arvanstorage.ir/'
 
 {
             "Effect": "Allow",
@@ -171,7 +171,8 @@ AWS_S3_ENDPOINT_URL='https://ghazalmua3.s3.ir-thr-at1.arvanstorage.ir'
 
             ],
             "Resource": [
-                "arn:aws:s3:::ghazalmua3/*",
-                "arn:aws:s3:::ghazalmua3"
+                "arn:aws:s3:::ghazalmua2/*",
+                "arn:aws:s3:::ghazalmua2"
             ]
         }
+        
