@@ -1,7 +1,9 @@
 from django import forms
-from .models import User
+from .models import User , OtpCode
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.core.exceptions import ValidationError
+
+
 class UserCreationForm(forms.ModelForm):
 
     password1=forms.CharField(label='password' , widget=forms.PasswordInput)
@@ -52,8 +54,16 @@ class UserRegistrationForm(forms.Form):
         user=User.objects.filter(phone_number=phone).exists()
         if user:
             raise ValidationError('this phone number already exists.') 
+        OtpCode.objects.filter(phone_number=phone).delete()
         return phone   
 
 
 class VerifyCodeForm(forms.Form):
     code=forms.IntegerField()
+    
+    
+    
+    
+class UserLoginForm(forms.Form):
+    phone=forms.CharField(max_length=11)
+    password=forms.CharField(widget=forms.PasswordInput)

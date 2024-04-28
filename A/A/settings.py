@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'home.apps.HomeConfig',
     'storages',
-    'celery' ,
+    'celery',
+    'django-celery-beat',
 ]
 
 MIDDLEWARE = [
@@ -109,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tehran'
 
 USE_I18N = True
 
@@ -158,6 +159,7 @@ AWS_STORAGE_BUCKET_NAME= 'ghazalmua2'
 AWS_SERVICE_NAME='s3'
 AWS_S3_FILE_OVERWRITE= False
 AWS_S3_ENDPOINT_URL='https://s3.ir-tbz-sh1.arvanstorage.ir/'
+AWS_LOCAL_STORAGE= f'{BASE_DIR}/aws/'                                #this means in the root of project(where manage.py located) you have a folder (aws) that download file (from bucket)will go there.
 
 {
             "Effect": "Allow",

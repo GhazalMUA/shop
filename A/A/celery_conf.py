@@ -7,7 +7,7 @@ celery_app= Celery('A')    #the name you assign to your Celery app must match yo
 
 celery_app.autodiscover_tasks()   #this method is finding your apps where it can find task.py , it execute this file
 
-celery_app.conf.broker_url= 'amqp://rabbitmq'   #first you should check this command 'brew services start rabbitmq' and then check this command to check the status of rabbitmq 'brew services list'
+celery_app.conf.broker_url= 'amqp://'   #first you should check this command 'brew services start rabbitmq' and then check this command to check the status of rabbitmq 'brew services list'
 celery_app.conf.result_backend= 'rpc://'
 celery_app.conf.task_serializer= 'json'
 celery_app.conf.result_serializer= 'pickle'
