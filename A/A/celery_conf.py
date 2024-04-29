@@ -15,3 +15,5 @@ celery_app.conf.accept_content= ['json' , 'pickle']
 celery_app.conf.result_expires= timedelta(days=1)
 celery_app.conf.task_always_eager= False   #means should i make a wait for a client to complete my task?
 celery_app.conf.worker_prefetch_multiplier = 4    #the maximum capacity that one worker can do a task. if your tasks are simple you can set it to the 4 but if your tasks are heavyyou can set it to 1
+
+celery_app.conf.broker_connection_retry_on_startup = True
