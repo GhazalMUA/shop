@@ -1,0 +1,21 @@
+ 
+ -------------- celery@Ghazals-Laptop.local v5.4.0 (opalescent)
+--- ***** ----- 
+-- ******* ---- macOS-14.0-arm64-arm-64bit 2024-04-28 13:52:37
+- *** --- * --- 
+- ** ---------- [config]
+- ** ---------- .> app:         A:0x108979460
+- ** ---------- .> transport:   amqp://guest:**@localhost:5672//
+- ** ---------- .> results:     rpc://
+- *** --- * --- .> concurrency: 8 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+[tasks]
+  . accounts.tasks.remove_expired_otp_codes
+  . home.tasks.delete_object_task
+  . home.tasks.download_object_task
+
