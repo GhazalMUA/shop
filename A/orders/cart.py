@@ -15,12 +15,14 @@ class Cart:
         products=Product.objects.filter(id__in=product_ids)                        #search in products and give me the one which its id is (product_ids). product_ids is a list so for checking id in this list you should usr __in to iterate
         cart = self.cart.copy()                   #we want to amke changes in the cart. for example adding some options(besorate key and value) so we should have a copy of main cart and then make changes.
         for product in products:
-            cart[str(product.id)]['product'] = product.name    #here i the dictionary of the specific profile with key:product.id , we add a new opthion (key) named 'product within a value product.name
+            cart[str(product.id)]['product'] = product    #here i the dictionary of the specific profile with key:product.id , we add a new opthion (key) named 'product within a value product.name
         for item in cart.values(): 
-
             item['total_price'] = float(item['price']) * item['quantity']
             yield item
-        
+     
+    def __len__(self):                               #in function har natijei ro ke return kone mishe length e in class madar. yani alan masalan kelasmon Cart hast va yejai mikhaym be len esh dastresi dashte b ashim vali chon in class cart ghabele shomaresh nistesh, bayad vasash ye method __len__() taain konim ke tooye on moshakhas konim k jahaye dg vase len() che meghdari bargardonde beshe        
+        return sum(item['quantity'] for item in self.cart.values())
+       
     def add(self,product,quantity):
         product_id = str(product.id)
         if product_id not in self.cart:                                             #if that product was not in the card, so I will create a session and if it was exists i will add that product to that card
@@ -34,9 +36,13 @@ class Cart:
     def remove(self,product):
         product_id=str(product.id)
         if product_id in self.cart:
-            del self.cart['product_id']
-            self.save()    
+            del self.cart[product_id]
+            self.save()      
             
         
     def get_total_price(self):
         return sum(float(item['price']) * item['quantity'] for item in self.cart.values())
+        
+    
+    
+    

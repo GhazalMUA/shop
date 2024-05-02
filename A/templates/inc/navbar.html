@@ -4,7 +4,8 @@
         <div class="navbar-nav">
             <a class="nav-link active" href="{% url 'home:home' %}">Home</a>
             {% if request.user.is_authenticated %}
-            <a class="nav-link active" href="{% url 'orders:cart' %}">cart</a>
+            <!--  in {{cart}} eshare dare be context_processor. darvaghe kilide on dictionary hastesh. age beri be file context.processors.py mitooni bebinish. karaish ine ke hameja dar dastrese tooye har tab i ke beri mishe ino bebini ke tooye in morede ma moshakhas kardim vasash ke tedade jensaye tooye sabade kharid ro neshoon bede. length badesh ham vase ine ke miad toole in cart ro mishmare -->
+            <a class="nav-link active" href="{% url 'orders:cart' %}">CART {{ cart|length }}</a>             
 
             <a class="nav-link active" href="{% url 'accounts:logout' %}">Logout</a>
             {% else %}
