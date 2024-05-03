@@ -181,4 +181,5 @@ AWS_LOCAL_STORAGE= f'{BASE_DIR}/aws/'                                #this means
                 "arn:aws:s3:::ghazalmua2"
             ]
         }
-        
+
+MERCHANT='6789.jhgvbh.98767.jhbvhj.9876.lkjh'        

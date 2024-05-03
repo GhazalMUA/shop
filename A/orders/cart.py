@@ -17,7 +17,7 @@ class Cart:
         for product in products:
             cart[str(product.id)]['product'] = product    #here i the dictionary of the specific profile with key:product.id , we add a new opthion (key) named 'product within a value product.name
         for item in cart.values(): 
-            item['total_price'] = float(item['price']) * item['quantity']
+            item['total_price'] = int(item['price']) * item['quantity']
             yield item
      
     def __len__(self):                               #in function har natijei ro ke return kone mishe length e in class madar. yani alan masalan kelasmon Cart hast va yejai mikhaym be len esh dastresi dashte b ashim vali chon in class cart ghabele shomaresh nistesh, bayad vasash ye method __len__() taain konim ke tooye on moshakhas konim k jahaye dg vase len() che meghdari bargardonde beshe        
@@ -41,7 +41,10 @@ class Cart:
             
         
     def get_total_price(self):
-        return sum(float(item['price']) * item['quantity'] for item in self.cart.values())
+        return sum(int(item['price']) * item['quantity'] for item in self.cart.values())
+    
+    def clear(self):
+        del self.session[CART_SESSION_ID]
         
     
     
