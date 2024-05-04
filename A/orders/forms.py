@@ -5,4 +5,4 @@ class CartAddForm(forms.Form):
     
     
 class CoupanApplyForm(forms.Form):
-    code=forms.CharField()    
+    code=forms.CharField(max_length=20)

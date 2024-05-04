@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Order,OrderItem
+from .models import Order,OrderItem, Coupan
 
 
 class OrderItemInline(admin.TabularInline):
@@ -11,3 +11,7 @@ class OrderAdmin(admin.ModelAdmin):
     list_display=('user' , 'id' ,'paid' , 'updated' )
     list_filter= ('paid' ,)
     inlines =(OrderItemInline,)
+    
+admin.site.register(Coupan)    
+
+    
