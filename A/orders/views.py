@@ -4,13 +4,20 @@ from .forms import CartAddForm , CoupanApplyForm
 from .cart import Cart
 from home.models import Product
 from .models import Order , OrderItem , Coupan
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin , PermissionRequiredMixin
 from django.conf import settings
 import requests
 import json
 from django.http import JsonResponse
 import datetime
 from django.contrib import messages
+
+
+
+
+
+
+
 
 # Create your views here.
 class CartView(View):
@@ -30,7 +37,9 @@ class CartAddView(View):
         return redirect('orders:cart')
     
 
-class CartRemoveView(View):
+class CartRemoveView(PermissionRequiredMixin,View):           #PermissionRequiredMixin in male vaghtie k mikhay baresi koni karbar on dastresi ro dare ya na. noe dastresi ro ham permission_required moshakhas mikone. age yedone bashe mesle mn minevisim . age chandta bashe tooye list ya tuple minevisimesh
+	permission_required = 'orders.add_order'
+ 
 	def get(self, request, product_id):
 		cart = Cart(request)
 		product = get_object_or_404(Product, id=product_id)

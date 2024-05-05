@@ -42,3 +42,9 @@ class DownloadBucketObject(IsAdminUserMixin,View):
         tasks.download_object_task.delay(key)
         messages.success(request, 'this file will download soon', 'info')    
         return redirect('home:bucket')
+    
+    
+class AboutView(View):
+    def get (self,request):
+        return render(request, 'home/about.html')    
+    

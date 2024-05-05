@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'storages',
     'celery',
     'django_celery_beat',
+    
 ]
 
 MIDDLEWARE = [
@@ -53,8 +54,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'home.middlewares.LoginMiddleware' ,
     
-
 ]
 
 ROOT_URLCONF = 'A.urls'
@@ -83,11 +84,23 @@ WSGI_APPLICATION = 'A.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "ghazalmuadatabase",
+        "USER": "ghazalmuauser",
+        "PASSWORD": "ghazalmuapassword",
+        "HOST": "127.0.0.1",
+        "PORT": "5432",
     }
 }
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.redis.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379",
+
+    }
+}
+SESSION_ENGINE='django.contrib.sessions.backends.cached_db'
 
 
 # Password validation
@@ -182,4 +195,4 @@ AWS_LOCAL_STORAGE= f'{BASE_DIR}/aws/'                                #this means
             ]
         }
 
-MERCHANT='6789.jhgvbh.98767.jhbvhj.9876.lkjh'        
+      
