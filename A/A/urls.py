@@ -11,3 +11,11 @@ urlpatterns = [
     path('orders/', include('orders.urls' , namespace='orders')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+
+###ina title haye tooye admin panel ro avaz mikonan
+
+admin.site.site_header='myshop'
+admin.site.site_title='ecommerce'
+admin.site.index_title='welcome to ghazal`s shop'
