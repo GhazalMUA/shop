@@ -14,4 +14,3 @@ Instructions on how to set up the project locally.
 ```bash
 git clone https://github.com/GhazalMUA/shop.git
 cd A
-pip install -r requirements.txt
